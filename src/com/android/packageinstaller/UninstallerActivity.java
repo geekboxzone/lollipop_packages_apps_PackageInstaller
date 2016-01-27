@@ -109,7 +109,11 @@ public class UninstallerActivity extends Activity {
         @Override
         public void onDismiss(DialogInterface dialog) {
             super.onDismiss(dialog);
-            getActivity().finish();
+            try {
+                getActivity().finish();
+            } catch (NullPointerException e) {
+                Log.e(TAG, "ondismiss activity null");
+            }
         }
     }
 
